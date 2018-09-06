@@ -1,30 +1,30 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PlayerManager {
-  private List beginner;
-  private List intermediate;
-  private List advance;
+  private Map beginner;
+  private Map intermediate;
+  private Map advance;
 
   public PlayerManager() {
-    this.beginner = new ArrayList<Player>();
-    this.intermediate = new ArrayList<Player>();
-    this.advance = new ArrayList<Player>();
+    this.beginner = new HashMap();
+    this.intermediate = new HashMap();
+    this.advance = new HashMap();
   }
 
   @SuppressWarnings("unchecked")
-  public void addPlayer(Player player, String level) {
+  public void addPlayer(String player, String level) {
     switch (level) {
       case "Beginner":
-        beginner.add(player);
+        beginner.put(player, level);
         break;
       case "Intermediate":
-        intermediate.add(player);
+        intermediate.put(player, level);
         break;
       case "Advance":
-        advance.add(player);
+        advance.put(player, level);
         break;
     }
   }

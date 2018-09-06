@@ -28,9 +28,7 @@ public class OptionController {
     } else if (level.equals("Please select level")) {
       AlertController.failAlert("Please select player's level.");
     } else {
-      Player badmintonPlayer;
-      badmintonPlayer = new Player(player, level);
-      playerManager.addPlayer(badmintonPlayer, level);
+      playerManager.addPlayer(player, level);
       AlertController.successAlert(player + " has been added to " + level + " group.");
       PlayerNameTextField.setText("");
       menuButton.setText("Please select level");
