@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="courtPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourtController">
+   <children>
+      <Label layoutX="22.0" layoutY="21.0" text="Start Time: " textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="336.0" layoutY="22.0" text="End Time: " textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fill="#ffff8d" glyphName="GEAR" layoutX="945.0" layoutY="50.0" size="40" />
+      <JFXButton buttonType="RAISED" layoutX="944.0" layoutY="14.0" onMouseClicked="#clickOption" prefHeight="43.0" prefWidth="37.0" ripplerFill="#ffff8d" text="  " textFill="#40485b" />
+      <Label layoutX="644.0" layoutY="21.0" text="Current Player: " textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="startTime" layoutX="150.0" layoutY="22.0" prefHeight="28.0" prefWidth="128.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="endTime" layoutX="455.0" layoutY="22.0" prefHeight="28.0" prefWidth="128.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="numPlayers" layoutX="821.0" layoutY="21.0" prefHeight="28.0" prefWidth="88.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="57.0" layoutY="105.0" stroke="#ffff8d" strokeType="INSIDE" width="248.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="57.0" layoutY="157.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="181.0" layoutY="157.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="181.0" layoutY="209.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="57.0" layoutY="209.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Label layoutX="132.0" layoutY="113.0" text="Court 1" textFill="#ffff8d">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="c1a" layoutX="65.0" layoutY="169.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c1c" layoutX="65.0" layoutY="222.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c1b" layoutX="187.0" layoutY="169.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c1d" layoutX="187.0" layoutY="222.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="378.0" layoutY="154.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="378.0" layoutY="103.0" stroke="#ffff8d" strokeType="INSIDE" width="248.0" />
+      <Label layoutX="453.0" layoutY="111.0" text="Court 2" textFill="#ffff8d">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="695.0" layoutY="103.0" stroke="#ffff8d" strokeType="INSIDE" width="248.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="695.0" layoutY="156.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="819.0" layoutY="156.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="819.0" layoutY="208.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="695.0" layoutY="208.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Label fx:id="c3a" layoutX="701.0" layoutY="172.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c3c" layoutX="701.0" layoutY="222.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c3b" layoutX="826.0" layoutY="172.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c3d" layoutX="826.0" layoutY="222.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="771.0" layoutY="113.0" text="Court 3" textFill="#ffff8d">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="695.0" layoutY="434.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="819.0" layoutY="434.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="819.0" layoutY="382.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="695.0" layoutY="382.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="695.0" layoutY="330.0" stroke="#ffff8d" strokeType="INSIDE" width="248.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="378.0" layoutY="332.0" stroke="#ffff8d" strokeType="INSIDE" width="248.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="378.0" layoutY="384.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="502.0" layoutY="384.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="502.0" layoutY="436.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="378.0" layoutY="436.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Label fx:id="c5a" layoutX="389.0" layoutY="398.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c5c" layoutX="388.0" layoutY="451.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c5b" layoutX="512.0" layoutY="398.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c5d" layoutX="510.0" layoutY="451.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="57.0" layoutY="438.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="181.0" layoutY="438.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="181.0" layoutY="386.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="57.0" layoutY="386.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="57.0" layoutY="334.0" stroke="#ffff8d" strokeType="INSIDE" width="248.0" />
+      <Label layoutX="126.0" layoutY="342.0" text="Court 4" textFill="#ffff8d">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="447.0" layoutY="340.0" text="Court 5" textFill="#ffff8d">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="768.0" layoutY="338.0" text="Court 6" textFill="#ffff8d">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="378.0" layoutY="207.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="502.0" layoutY="207.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#292d36" height="53.0" layoutX="502.0" layoutY="155.0" stroke="#ffff8d" strokeType="INSIDE" width="124.0" />
+      <Label fx:id="c2d" layoutX="512.0" layoutY="222.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c2b" layoutX="512.0" layoutY="169.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c2c" layoutX="389.0" layoutY="222.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c2a" layoutX="389.0" layoutY="169.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c6c" layoutX="701.0" layoutY="451.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c6d" layoutX="826.0" layoutY="451.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c6b" layoutX="826.0" layoutY="398.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c6a" layoutX="701.0" layoutY="398.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c4c" layoutX="65.0" layoutY="451.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c4d" layoutX="187.0" layoutY="451.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c4b" layoutX="187.0" layoutY="398.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="c4a" layoutX="65.0" layoutY="398.0" prefHeight="28.0" prefWidth="99.0" text="N/A" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="2.0" layoutY="600.0" onMouseClicked="#clickBack" text="&lt; Back" textFill="#ffff8d">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="433.0" layoutY="542.0" stylesheets="@Main.css" text="Court Change" />
+   </children>
+</AnchorPane>

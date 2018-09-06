@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.paint.*?>
+<?import com.jfoenix.controls.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="OptionPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OptionController">
+  <children>
+    <JFXTextField fx:id="PlayerNameTextField" alignment="TOP_CENTER" labelFloat="true" layoutX="359.0" layoutY="154.0" prefHeight="40.0" prefWidth="294.0" promptText="Player Name" stylesheets="@Main.css">
+      <font>
+        <Font size="30.0" />
+      </font>
+    </JFXTextField>
+      <MenuButton fx:id="menuButton" layoutX="382.0" layoutY="256.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="252.0" stylesheets="@Main.css" text="Please select level">
+         <font>
+            <Font size="19.0" />
+         </font>
+         <items>
+            <MenuItem mnemonicParsing="false" text="Beginner" />
+            <MenuItem mnemonicParsing="false" text="Intermediate" />
+            <MenuItem mnemonicParsing="false" text="Advance" />
+         </items>
+      </MenuButton>
+      <JFXButton fx:id="joinButton" layoutX="384.0" layoutY="346.0" onMouseClicked="#clickJoin" prefHeight="42.0" prefWidth="95.0" stylesheets="@Main.css" text="Join" />
+      <JFXButton layoutX="537.0" layoutY="346.0" prefHeight="42.0" prefWidth="95.0" stylesheets="@Main.css" text="Quit" />
+      <JFXButton layoutX="3.0" layoutY="599.0" onMouseClicked="#clickBack" text="&lt; Back" textFill="#ffff8d">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="425.0" layoutY="416.0" prefHeight="42.0" prefWidth="173.0" stylesheets="@Main.css" text="Leave" />
+  </children>
+</AnchorPane>
