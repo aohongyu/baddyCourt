@@ -1,35 +1,53 @@
 package model;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class PlayerManager {
-  private Map beginner;
-  private Map intermediate;
-  private Map advance;
+  private Set beginner;
+  private Set intermediate;
+  private Set advance;
+  public static int PLAYERNUM;
 
   public PlayerManager() {
-    this.beginner = new HashMap();
-    this.intermediate = new HashMap();
-    this.advance = new HashMap();
+    this.beginner = new HashSet();
+    this.intermediate = new HashSet();
+    this.advance = new HashSet();
   }
 
   @SuppressWarnings("unchecked")
   public void addPlayer(String player, String level) {
     switch (level) {
       case "Beginner":
-        beginner.put(player, level);
+        beginner.add(player);
+        PLAYERNUM++;
         break;
       case "Intermediate":
-        intermediate.put(player, level);
+        intermediate.add(player);
+        PLAYERNUM++;
         break;
       case "Advance":
-        advance.put(player, level);
+        advance.add(player);
+        PLAYERNUM++;
         break;
     }
   }
 
-  public void removePlayer(Player player, String level) {
+  public void removePlayer(String player, String level) {
+    switch (level) {
+      case "Beginner":
+        beginner.remove(player);
+        PLAYERNUM--;
+        break;
+      case "Intermediate":
+        intermediate.remove(player);
+        PLAYERNUM--;
+        break;
+      case "Advance":
+        advance.remove(player);
+        PLAYERNUM--;
+        break;
+    }
   }
 
   public int getNumBeginner() {
@@ -42,9 +60,5 @@ public class PlayerManager {
 
   public int getNumAdvance() {
     return advance.size();
-  }
-
-  public int getTotalNumPlayers() {
-    return beginner.size() + intermediate.size() + advance.size();
   }
 }

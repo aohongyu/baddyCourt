@@ -37,6 +37,7 @@ public class StarterController {
       stage.setScene(courtScene);
       courtController.setStartTime(startTime);
       courtController.setEndTime(endTime);
+      courtController.setNumPlayers(PlayerManager.PLAYERNUM);
     }
   }
 

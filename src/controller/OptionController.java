@@ -16,6 +16,7 @@ public class OptionController {
   @FXML private JFXTextField PlayerNameTextField;
   @FXML private MenuButton menuButton;
   private Scene previousScene;
+  private CourtController courtController;
 
   @FXML
   public void clickJoin() throws IOException {
@@ -34,10 +35,38 @@ public class OptionController {
       menuButton.setText("Please select level");
     }
     // test
-    System.out.println("total: " + playerManager.getTotalNumPlayers());
+    System.out.println("total: " + PlayerManager.PLAYERNUM);
     System.out.println("b: " + playerManager.getNumBeginner());
     System.out.println("i: " + playerManager.getNumIntermediate());
     System.out.println("a: " + playerManager.getNumAdvance());
+  }
+
+  @FXML
+  public void clickLeave() throws IOException {
+    Admin admin = StarterController.adminUser;
+    PlayerManager playerManager = admin.getPlayerManager();
+    String player = PlayerNameTextField.getText();
+    String level = menuButton.getText();
+    if (player.matches("[\\s]*")) {
+      AlertController.failAlert("Please enter player's name.");
+    } else if (level.equals("Please select level")) {
+      AlertController.failAlert("Please select player's level.");
+    } else {
+      playerManager.removePlayer(player, level);
+      courtController.setNumPlayers(PlayerManager.PLAYERNUM);
+      AlertController.successAlert(player + " has been removed from " + level + " group.");
+      PlayerNameTextField.setText("");
+      menuButton.setText("Please select level");
+    }
+    // test
+    System.out.println("total: " + PlayerManager.PLAYERNUM);
+    System.out.println("b: " + playerManager.getNumBeginner());
+    System.out.println("i: " + playerManager.getNumIntermediate());
+    System.out.println("a: " + playerManager.getNumAdvance());
+  }
+
+  public void setCourtController(CourtController courtController) {
+    this.courtController = courtController;
   }
 
   @FXML

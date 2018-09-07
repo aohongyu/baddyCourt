@@ -49,15 +49,15 @@ public class CourtController {
     endTime.setText(end);
   }
 
-  public void setNumPlayers(String players) {
-    numPlayers.setText(players);
+  public void setNumPlayers(int players) {
+    numPlayers.setText(String.valueOf(players));
   }
 
-  public void setOptionController(OptionController optionController){
+  public void setOptionController(OptionController optionController) {
     this.optionController = optionController;
   }
 
-  public void setOptionScene(Scene optionScene){
+  public void setOptionScene(Scene optionScene) {
     this.optionScene = optionScene;
   }
 
