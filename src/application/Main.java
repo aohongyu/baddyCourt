@@ -42,6 +42,7 @@ public class Main extends Application {
     Scene optionScene = new Scene(optionPane);
     courtController.setOptionScene(optionScene);
     OptionController optionController = fxmlLoader2.getController();
+    optionController.setCourtController(courtController);
     courtController.setOptionController(optionController);
     // set the previous scene
     optionController.setPreviousScene(courtScene);

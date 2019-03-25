@@ -33,12 +33,15 @@ public class OptionController {
       AlertController.successAlert(player + " has been added to " + level + " group.");
       PlayerNameTextField.setText("");
       menuButton.setText("Please select level");
+      // update the number of current player
+      courtController.setNumPlayers(PlayerManager.PLAYERNUM);
     }
-    // test
+    // TODO: ##################################TEST#################################################
     System.out.println("total: " + PlayerManager.PLAYERNUM);
     System.out.println("b: " + playerManager.getNumBeginner());
     System.out.println("i: " + playerManager.getNumIntermediate());
     System.out.println("a: " + playerManager.getNumAdvance());
+    // TODO: ##################################TEST#################################################
   }
 
   @FXML
