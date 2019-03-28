@@ -19,14 +19,23 @@ public class PlayerManager {
   public void addPlayer(String player, String level) {
     switch (level) {
       case "Beginner":
+        if (beginner.contains(player)) {
+          break;
+        }
         beginner.add(player);
         PLAYERNUM++;
         break;
       case "Intermediate":
+        if (intermediate.contains(player)) {
+          break;
+        }
         intermediate.add(player);
         PLAYERNUM++;
         break;
       case "Advance":
+        if (advance.contains(player)) {
+          break;
+        }
         advance.add(player);
         PLAYERNUM++;
         break;
@@ -36,16 +45,22 @@ public class PlayerManager {
   public void removePlayer(String player, String level) {
     switch (level) {
       case "Beginner":
-        beginner.remove(player);
-        PLAYERNUM--;
+        if (beginner.contains(player)) {
+          beginner.remove(player);
+          PLAYERNUM--;
+        }
         break;
       case "Intermediate":
-        intermediate.remove(player);
-        PLAYERNUM--;
+        if (intermediate.contains(player)) {
+          intermediate.remove(player);
+          PLAYERNUM--;
+        }
         break;
       case "Advance":
-        advance.remove(player);
-        PLAYERNUM--;
+        if (advance.contains(player)) {
+          advance.remove(player);
+          PLAYERNUM--;
+        }
         break;
     }
   }

@@ -20,6 +20,7 @@ public class OptionController {
 
   @FXML
   public void clickJoin() throws IOException {
+    int currPlayerNum = PlayerManager.PLAYERNUM;
     Admin admin = StarterController.adminUser;
     PlayerManager playerManager = admin.getPlayerManager();
     String player = PlayerNameTextField.getText();
@@ -30,9 +31,14 @@ public class OptionController {
       AlertController.failAlert("Please select player's level.");
     } else {
       playerManager.addPlayer(player, level);
-      AlertController.successAlert(player + " has been added to " + level + " group.");
-      PlayerNameTextField.setText("");
-      menuButton.setText("Please select level");
+      // check if there is reenter player
+      if (currPlayerNum != PlayerManager.PLAYERNUM - 1) {
+        AlertController.failAlert(player + " has already in " + level + " group.");
+      } else {
+        AlertController.successAlert(player + " has been added to " + level + " group.");
+        PlayerNameTextField.setText("");
+        menuButton.setText("Please select level");
+      }
       // update the number of current player
       courtController.setNumPlayers(PlayerManager.PLAYERNUM);
     }
@@ -46,6 +52,7 @@ public class OptionController {
 
   @FXML
   public void clickLeave() throws IOException {
+    int currPlayerNum = PlayerManager.PLAYERNUM;
     Admin admin = StarterController.adminUser;
     PlayerManager playerManager = admin.getPlayerManager();
     String player = PlayerNameTextField.getText();
@@ -56,16 +63,21 @@ public class OptionController {
       AlertController.failAlert("Please select player's level.");
     } else {
       playerManager.removePlayer(player, level);
+      if (currPlayerNum != PlayerManager.PLAYERNUM + 1) {
+        AlertController.failAlert(player + " is not in " + level + " group.");
+      } else {
+        AlertController.successAlert(player + " has been removed from " + level + " group.");
+        PlayerNameTextField.setText("");
+        menuButton.setText("Please select level");
+      }
       courtController.setNumPlayers(PlayerManager.PLAYERNUM);
-      AlertController.successAlert(player + " has been removed from " + level + " group.");
-      PlayerNameTextField.setText("");
-      menuButton.setText("Please select level");
     }
-    // test
+    // TODO: ##################################TEST#################################################
     System.out.println("total: " + PlayerManager.PLAYERNUM);
     System.out.println("b: " + playerManager.getNumBeginner());
     System.out.println("i: " + playerManager.getNumIntermediate());
     System.out.println("a: " + playerManager.getNumAdvance());
+    // TODO: ##################################TEST#################################################
   }
 
   public void setCourtController(CourtController courtController) {
