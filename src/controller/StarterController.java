@@ -38,6 +38,7 @@ public class StarterController {
       courtController.setStartTime(startTime);
       courtController.setEndTime(endTime);
       courtController.setNumPlayers(PlayerManager.PLAYERNUM);
+      CourtManager.COURTNUM = Integer.parseInt(courtNum);
     }
   }
 

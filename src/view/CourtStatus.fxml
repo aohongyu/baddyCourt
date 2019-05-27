@@ -228,6 +228,6 @@
             <Font size="25.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="433.0" layoutY="542.0" stylesheets="@Main.css" text="Court Change" />
+      <JFXButton layoutX="433.0" layoutY="542.0" onMouseClicked="#clickCourtChange" stylesheets="@Main.css" text="Court Change" />
    </children>
 </AnchorPane>

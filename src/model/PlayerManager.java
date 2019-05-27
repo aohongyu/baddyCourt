@@ -76,4 +76,16 @@ public class PlayerManager {
   public int getNumAdvance() {
     return advance.size();
   }
+
+  public Set getBeginner() {
+    return beginner;
+  }
+
+  public Set getIntermediate() {
+    return intermediate;
+  }
+
+  public Set getAdvance() {
+    return advance;
+  }
 }

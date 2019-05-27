@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import model.*;
 
 public class CourtController {
 
@@ -65,6 +66,19 @@ public class CourtController {
     Stage stage = (Stage) ((Node) mouseEvent.getSource()).getScene().getWindow();
     optionController.setUpLevel();
     stage.setScene(optionScene);
+  }
+
+  public void clickCourtChange() throws IOException {
+    Admin admin = StarterController.adminUser;
+    CourtManager courtManager = admin.getCourtManager();
+    if (CourtManager.COURTNUM == 1) {
+      courtManager.setUp1Court();
+      String[] playerList = (String[]) courtManager.courtStatus.get(1);
+      c1a.setText(playerList[0]);
+      c1b.setText(playerList[1]);
+      c1c.setText(playerList[2]);
+      c1d.setText(playerList[3]);
+    }
   }
 
   public void setPreviousScene(Scene scene) {
