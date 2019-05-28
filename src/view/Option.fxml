@@ -21,7 +21,6 @@
             <Font size="19.0" />
          </font>
          <items>
-            <MenuItem mnemonicParsing="false" text="Beginner" />
             <MenuItem mnemonicParsing="false" text="Intermediate" />
             <MenuItem mnemonicParsing="false" text="Advance" />
          </items>

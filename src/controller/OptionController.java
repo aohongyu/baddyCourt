@@ -44,7 +44,6 @@ public class OptionController {
     }
     // TODO: ##################################TEST#################################################
     System.out.println("total: " + PlayerManager.PLAYERNUM);
-    System.out.println("b: " + playerManager.getNumBeginner());
     System.out.println("i: " + playerManager.getNumIntermediate());
     System.out.println("a: " + playerManager.getNumAdvance());
     // TODO: ##################################TEST#################################################
@@ -74,7 +73,6 @@ public class OptionController {
     }
     // TODO: ##################################TEST#################################################
     System.out.println("total: " + PlayerManager.PLAYERNUM);
-    System.out.println("b: " + playerManager.getNumBeginner());
     System.out.println("i: " + playerManager.getNumIntermediate());
     System.out.println("a: " + playerManager.getNumAdvance());
     // TODO: ##################################TEST#################################################

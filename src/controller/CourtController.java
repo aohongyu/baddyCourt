@@ -72,7 +72,7 @@ public class CourtController {
     Admin admin = StarterController.adminUser;
     CourtManager courtManager = admin.getCourtManager();
     if (CourtManager.COURTNUM == 1) {
-      courtManager.setUp1Court();
+//      courtManager.setUp1Court();
       String[] playerList = (String[]) courtManager.courtStatus.get(1);
       c1a.setText(playerList[0]);
       c1b.setText(playerList[1]);

@@ -10,7 +10,6 @@ public class PlayerManager {
   public static int PLAYERNUM;
 
   public PlayerManager() {
-    this.beginner = new HashSet();
     this.intermediate = new HashSet();
     this.advance = new HashSet();
   }
@@ -18,13 +17,6 @@ public class PlayerManager {
   @SuppressWarnings("unchecked")
   public void addPlayer(String player, String level) {
     switch (level) {
-      case "Beginner":
-        if (beginner.contains(player)) {
-          break;
-        }
-        beginner.add(player);
-        PLAYERNUM++;
-        break;
       case "Intermediate":
         if (intermediate.contains(player)) {
           break;
@@ -44,12 +36,6 @@ public class PlayerManager {
 
   public void removePlayer(String player, String level) {
     switch (level) {
-      case "Beginner":
-        if (beginner.contains(player)) {
-          beginner.remove(player);
-          PLAYERNUM--;
-        }
-        break;
       case "Intermediate":
         if (intermediate.contains(player)) {
           intermediate.remove(player);
@@ -63,10 +49,6 @@ public class PlayerManager {
         }
         break;
     }
-  }
-
-  public int getNumBeginner() {
-    return beginner.size();
   }
 
   public int getNumIntermediate() {
