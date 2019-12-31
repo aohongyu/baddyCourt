@@ -27,8 +27,18 @@ public class CourtManager {
   @SuppressWarnings("unchecked")
   public void setUp3Court() {
     courtStatus.put(1, setUpInPlayer());
-    courtStatus.put(2, setUpadPlayer());
-    courtStatus.put(3, setUpadPlayer());
+    courtStatus.put(2, setUpAdPlayer());
+    courtStatus.put(3, setUpAdPlayer());
+  }
+
+  @SuppressWarnings("unchecked")
+  public void setUp6Court() {
+    courtStatus.put(1, setUpInPlayer());
+    courtStatus.put(2, setUpInPlayer());
+    courtStatus.put(3, setUpAdPlayer());
+    courtStatus.put(4, setUpAdPlayer());
+    courtStatus.put(5, setUpAdPlayer());
+    courtStatus.put(6, setUpAdPlayer());
   }
 
   @SuppressWarnings("unchecked")
@@ -74,7 +84,7 @@ public class CourtManager {
   }
 
   @SuppressWarnings("unchecked")
-  public Object[] setUpadPlayer() {
+  public Object[] setUpAdPlayer() {
     advance.addAll(playerManager.getAdvance());
     Object[] nextRound = new Object[4];
     int in = playerManager.getNumAdvance();
@@ -105,7 +115,7 @@ public class CourtManager {
       playerInQueue++;
     }
 
-    for (int i = playerInQueue; i < 4; ) {
+    for (int i = playerInQueue; i < 4;) {
       int index = random.nextInt(adLineUpIndex.size());
       int playerIndex = adLineUpIndex.remove(index);
       nextRound[i] = advance.get(playerIndex);

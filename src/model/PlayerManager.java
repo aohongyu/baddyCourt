@@ -31,16 +31,16 @@ public class PlayerManager {
         intermediate.add("i6");
         intermediate.add("i7");
         intermediate.add("i8");
-        intermediate.add("i9");
-        intermediate.add("i10");
-        intermediate.add("i11");
-        intermediate.add("i12");
-        intermediate.add("i13");
-        intermediate.add("i14");
-        intermediate.add("i15");
-        intermediate.add("i16");
-        intermediate.add("i17");
-        PLAYERNUM += 17;
+//        intermediate.add("i9");
+//        intermediate.add("i10");
+//        intermediate.add("i11");
+//        intermediate.add("i12");
+//        intermediate.add("i13");
+//        intermediate.add("i14");
+//        intermediate.add("i15");
+//        intermediate.add("i16");
+//        intermediate.add("i17");
+        PLAYERNUM += 8;
         // TODO: 测试用！！
 
 //        PLAYERNUM++;
@@ -68,8 +68,8 @@ public class PlayerManager {
         advance.add("a14");
         advance.add("a15");
         advance.add("a16");
-        advance.add("a17");
-        PLAYERNUM += 17;
+//        advance.add("a17");
+        PLAYERNUM += 16;
         // TODO: 测试用！！
 
         // PLAYERNUM++;
