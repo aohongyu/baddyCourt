@@ -1,34 +1,117 @@
 package model;
 
-import model.*;
-import controller.StarterController;
 import java.util.*;
 
 public class CourtManager {
   public Map courtStatus;
 
-  public Object[] intermediate;
-  public Object[] advance;
+  public ArrayList<Object> intermediate = new ArrayList<>();
+  public ArrayList<Object> advance = new ArrayList<>();
 
   public static int COURTNUM;
   public PlayerManager playerManager;
+  public List<Integer> inLineUpIndex = new ArrayList<>();
+  public List<Integer> adLineUpIndex = new ArrayList<>();
+  /** A copy of current number of players. */
+  public int currNumPlayerI = 0;
+  public int currNumPlayerA = 0;
+
+  public boolean initI = true;
+  public boolean initA = true;
 
   public CourtManager(PlayerManager playerManager) {
     this.playerManager = playerManager;
     this.courtStatus = new HashMap<>();
-    //    this.intermediate = playerManager.getIntermediate().toArray();
-    this.advance = playerManager.getAdvance().toArray();
   }
 
   @SuppressWarnings("unchecked")
-  public void setUp1Court() {
-    courtStatus.put(1, setUpPlayer());
+  public void setUp3Court() {
+    courtStatus.put(1, setUpInPlayer());
+    courtStatus.put(2, setUpadPlayer());
+    courtStatus.put(3, setUpadPlayer());
   }
 
   @SuppressWarnings("unchecked")
-  public Object[] setUpPlayer() {
-    intermediate = playerManager.getIntermediate().toArray();
-    System.out.println("!!!!" + intermediate.length);
-    return intermediate;
+  public Object[] setUpInPlayer() {
+    intermediate.addAll(playerManager.getIntermediate());
+    Object[] nextRound = new Object[4];
+    int in = playerManager.getNumIntermediate();
+    Random random = new Random();
+
+    if (inLineUpIndex.size() < 4 && !initI) {
+      int i = 0;
+      while (inLineUpIndex.size() > 0) {
+        int index = random.nextInt(inLineUpIndex.size());
+        int playerIndex = inLineUpIndex.remove(index);
+        nextRound[i] = intermediate.get(playerIndex);
+        i++;
+      }
+      currNumPlayerI = 0;
+      initI = true;
+    }
+
+    if (initI) {
+      while (currNumPlayerI < in) {
+        inLineUpIndex.add(currNumPlayerI);
+        currNumPlayerI++;
+      }
+      initI = false;
+    }
+
+    int playerInQueue = 0;
+    while (nextRound[playerInQueue] != null) {
+      playerInQueue++;
+    }
+
+    for (int i = playerInQueue; i < 4; ) {
+      int index = random.nextInt(inLineUpIndex.size());
+      int playerIndex = inLineUpIndex.remove(index);
+      nextRound[i] = intermediate.get(playerIndex);
+      i++;
+    }
+
+    return nextRound;
+  }
+
+  @SuppressWarnings("unchecked")
+  public Object[] setUpadPlayer() {
+    advance.addAll(playerManager.getAdvance());
+    Object[] nextRound = new Object[4];
+    int in = playerManager.getNumAdvance();
+    Random random = new Random();
+
+    if (adLineUpIndex.size() < 4 && !initA) {
+      int i = 0;
+      while (adLineUpIndex.size() > 0) {
+        int index = random.nextInt(adLineUpIndex.size());
+        int playerIndex = adLineUpIndex.remove(index);
+        nextRound[i] = advance.get(playerIndex);
+        i++;
+      }
+      currNumPlayerA = 0;
+      initA = true;
+    }
+
+    if (initA) {
+      while (currNumPlayerA < in) {
+        adLineUpIndex.add(currNumPlayerA);
+        currNumPlayerA++;
+      }
+      initA = false;
+    }
+
+    int playerInQueue = 0;
+    while (nextRound[playerInQueue] != null) {
+      playerInQueue++;
+    }
+
+    for (int i = playerInQueue; i < 4; ) {
+      int index = random.nextInt(adLineUpIndex.size());
+      int playerIndex = adLineUpIndex.remove(index);
+      nextRound[i] = advance.get(playerIndex);
+      i++;
+    }
+
+    return nextRound;
   }
 }

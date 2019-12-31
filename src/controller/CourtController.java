@@ -78,13 +78,23 @@ public class CourtController {
     if (PlayerManager.PLAYERNUM < 4) {
       AlertController.failAlert("There is not enough players.");
     }
-    if (CourtManager.COURTNUM == 1) {
-      courtManager.setUp1Court();
-      Object[] playerList = (Object[]) courtManager.courtStatus.get(1);
-      c1a.setText(String.valueOf(playerList[0]));
-      c1b.setText(String.valueOf(playerList[1]));
-      c1c.setText(String.valueOf(playerList[2]));
-      c1d.setText(String.valueOf(playerList[3]));
+    if (CourtManager.COURTNUM == 3) {
+      courtManager.setUp3Court();
+      Object[] playerList1 = (Object[]) courtManager.courtStatus.get(1);
+      c1a.setText(String.valueOf(playerList1[0]));
+      c1b.setText(String.valueOf(playerList1[1]));
+      c1c.setText(String.valueOf(playerList1[2]));
+      c1d.setText(String.valueOf(playerList1[3]));
+      Object[] playerList2 = (Object[]) courtManager.courtStatus.get(2);
+      c2a.setText(String.valueOf(playerList2[0]));
+      c2b.setText(String.valueOf(playerList2[1]));
+      c2c.setText(String.valueOf(playerList2[2]));
+      c2d.setText(String.valueOf(playerList2[3]));
+      Object[] playerList3 = (Object[]) courtManager.courtStatus.get(3);
+      c3a.setText(String.valueOf(playerList3[0]));
+      c3b.setText(String.valueOf(playerList3[1]));
+      c3c.setText(String.valueOf(playerList3[2]));
+      c3d.setText(String.valueOf(playerList3[3]));
     }
   }
 

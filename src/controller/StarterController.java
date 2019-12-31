@@ -32,7 +32,7 @@ public class StarterController {
 //    if (!startTime.matches("([01][0-9]|2[0-3]):[0-5][0-9]")
 //        || !endTime.matches("([01][0-9]|2[0-3]):[0-5][0-9]")) {
 //      AlertController.failAlert("Please enter valid time.");
-//    } else if (!courtNum.matches("[1-6]")) {
+//    } else if (!courtNum.matches("3|6")) {
 //      AlertController.failAlert("Please enter valid number of courts.");
 //    } else {
       stage.setScene(courtScene);
