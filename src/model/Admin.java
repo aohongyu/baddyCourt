@@ -6,8 +6,8 @@ public class Admin {
   private CourtManager courtManager;
 
   public void initializeSystem() {
-    this.courtManager = new CourtManager();
     this.playerManager = new PlayerManager();
+    this.courtManager = new CourtManager(this.playerManager);
   }
 
   public PlayerManager getPlayerManager() {

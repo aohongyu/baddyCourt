@@ -4,8 +4,8 @@ import java.util.HashSet;
 import java.util.*;
 
 public class PlayerManager {
-  private Set intermediate;
-  private Set advance;
+  public Set intermediate;
+  public Set advance;
   public static int PLAYERNUM;
 
   public PlayerManager() {

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Set;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -42,6 +43,11 @@ public class CourtController {
   @FXML private Label c6c;
   @FXML private Label c6d;
 
+  Admin admin = StarterController.adminUser;
+  CourtManager courtManager = admin.getCourtManager();
+
+  public CourtController() {}
+
   public void setStartTime(String start) {
     startTime.setText(start);
   }
@@ -69,15 +75,16 @@ public class CourtController {
   }
 
   public void clickCourtChange() throws IOException {
-    Admin admin = StarterController.adminUser;
-    CourtManager courtManager = admin.getCourtManager();
+    if (PlayerManager.PLAYERNUM < 4) {
+      AlertController.failAlert("There is not enough players.");
+    }
     if (CourtManager.COURTNUM == 1) {
-//      courtManager.setUp1Court();
-      String[] playerList = (String[]) courtManager.courtStatus.get(1);
-      c1a.setText(playerList[0]);
-      c1b.setText(playerList[1]);
-      c1c.setText(playerList[2]);
-      c1d.setText(playerList[3]);
+      courtManager.setUp1Court();
+      Object[] playerList = (Object[]) courtManager.courtStatus.get(1);
+      c1a.setText(String.valueOf(playerList[0]));
+      c1b.setText(String.valueOf(playerList[1]));
+      c1c.setText(String.valueOf(playerList[2]));
+      c1d.setText(String.valueOf(playerList[3]));
     }
   }
 
