@@ -20,17 +20,17 @@ public class PlayerManager {
         if (intermediate.contains(player)) {
           break;
         }
-//        intermediate.add(player);
+        intermediate.add(player);
 
-        // TODO: 测试用！！
-        intermediate.add("i1");
-        intermediate.add("i2");
-        intermediate.add("i3");
-        intermediate.add("i4");
-        intermediate.add("i5");
-        intermediate.add("i6");
-        intermediate.add("i7");
-        intermediate.add("i8");
+//        // TODO: 测试用！！
+//        intermediate.add("i1");
+//        intermediate.add("i2");
+//        intermediate.add("i3");
+//        intermediate.add("i4");
+//        intermediate.add("i5");
+//        intermediate.add("i6");
+//        intermediate.add("i7");
+//        intermediate.add("i8");
 //        intermediate.add("i9");
 //        intermediate.add("i10");
 //        intermediate.add("i11");
@@ -40,39 +40,39 @@ public class PlayerManager {
 //        intermediate.add("i15");
 //        intermediate.add("i16");
 //        intermediate.add("i17");
-        PLAYERNUM += 8;
-        // TODO: 测试用！！
+//        PLAYERNUM += 17;
+//        // TODO: 测试用！！
 
-//        PLAYERNUM++;
+        PLAYERNUM++;
         break;
       case "Advance":
         if (advance.contains(player)) {
           break;
         }
-        // advance.add(player);
+         advance.add(player);
 
-        // TODO: 测试用！！
-        advance.add("a1");
-        advance.add("a2");
-        advance.add("a3");
-        advance.add("a4");
-        advance.add("a5");
-        advance.add("a6");
-        advance.add("a7");
-        advance.add("a8");
-        advance.add("a9");
-        advance.add("a10");
-        advance.add("a11");
-        advance.add("a12");
-        advance.add("a13");
-        advance.add("a14");
-        advance.add("a15");
-        advance.add("a16");
+//        // TODO: 测试用！！
+//        advance.add("a1");
+//        advance.add("a2");
+//        advance.add("a3");
+//        advance.add("a4");
+//        advance.add("a5");
+//        advance.add("a6");
+//        advance.add("a7");
+//        advance.add("a8");
+//        advance.add("a9");
+//        advance.add("a10");
+//        advance.add("a11");
+//        advance.add("a12");
+//        advance.add("a13");
+//        advance.add("a14");
+//        advance.add("a15");
+//        advance.add("a16");
 //        advance.add("a17");
-        PLAYERNUM += 16;
-        // TODO: 测试用！！
+//        PLAYERNUM += 17;
+//        // TODO: 测试用！！
 
-        // PLAYERNUM++;
+         PLAYERNUM++;
         break;
     }
   }
