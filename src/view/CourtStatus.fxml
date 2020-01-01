@@ -229,5 +229,20 @@
          </font>
       </JFXButton>
       <JFXButton layoutX="433.0" layoutY="542.0" onMouseClicked="#clickCourtChange" stylesheets="@Main.css" text="Court Change" />
+      <Label fx:id="minTextField" layoutX="757.0" layoutY="41.0" prefHeight="28.0" prefWidth="37.0" text="00" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="secTextField" layoutX="806.0" layoutY="41.0" prefHeight="28.0" prefWidth="51.0" text="00" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label fx:id="minTextField2" layoutX="794.0" layoutY="39.0" prefHeight="28.0" prefWidth="8.0" text=":" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

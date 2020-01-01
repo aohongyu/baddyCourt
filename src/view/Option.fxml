@@ -11,12 +11,12 @@
 
 <AnchorPane fx:id="OptionPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OptionController">
   <children>
-    <JFXTextField fx:id="PlayerNameTextField" alignment="TOP_CENTER" labelFloat="true" layoutX="359.0" layoutY="154.0" prefHeight="40.0" prefWidth="294.0" promptText="Player Name" stylesheets="@Main.css">
+    <JFXTextField fx:id="PlayerNameTextField" alignment="TOP_CENTER" labelFloat="true" layoutX="159.0" layoutY="216.0" prefHeight="40.0" prefWidth="294.0" promptText="Player Name" stylesheets="@Main.css">
       <font>
         <Font size="30.0" />
       </font>
     </JFXTextField>
-      <MenuButton fx:id="menuButton" layoutX="382.0" layoutY="256.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="252.0" stylesheets="@Main.css" text="Please select level">
+      <MenuButton fx:id="menuButton" layoutX="182.0" layoutY="318.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="252.0" stylesheets="@Main.css" text="Please select level">
          <font>
             <Font size="19.0" />
          </font>
@@ -25,12 +25,30 @@
             <MenuItem mnemonicParsing="false" text="Advance" />
          </items>
       </MenuButton>
-      <JFXButton fx:id="joinButton" layoutX="384.0" layoutY="346.0" onMouseClicked="#clickJoin" prefHeight="42.0" prefWidth="95.0" stylesheets="@Main.css" text="Join" />
-      <JFXButton layoutX="537.0" layoutY="346.0" onMouseClicked="#clickLeave" prefHeight="42.0" prefWidth="95.0" stylesheets="@Main.css" text="Quit" />
+      <JFXButton fx:id="joinButton" layoutX="182.0" layoutY="408.0" onMouseClicked="#clickJoin" prefHeight="42.0" prefWidth="95.0" stylesheets="@Main.css" text="Join" />
+      <JFXButton layoutX="335.0" layoutY="408.0" onMouseClicked="#clickLeave" prefHeight="42.0" prefWidth="95.0" stylesheets="@Main.css" text="Quit" />
       <JFXButton layoutX="3.0" layoutY="599.0" onMouseClicked="#clickBack" text="&lt; Back" textFill="#ffff8d">
          <font>
             <Font size="25.0" />
          </font>
       </JFXButton>
+      <JFXTextField fx:id="minTextField" alignment="TOP_CENTER" labelFloat="true" layoutX="542.0" layoutY="286.0" prefHeight="40.0" prefWidth="139.0" promptText="Minute" stylesheets="@Main.css">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="secTextField" alignment="TOP_CENTER" labelFloat="true" layoutX="702.0" layoutY="286.0" prefHeight="40.0" prefWidth="139.0" promptText="Second" stylesheets="@Main.css">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="timerStartButton" layoutX="539.0" layoutY="408.0" onMouseClicked="#clickTimerStart" prefHeight="42.0" prefWidth="95.0" stylesheets="@Main.css" text="Start" />
+      <JFXButton fx:id="timerPauseButton" layoutX="642.0" layoutY="408.0" onMouseClicked="#clickTimerPause" prefHeight="42.0" prefWidth="107.0" stylesheets="@Main.css" text="Pause" />
+      <JFXButton fx:id="timerResetButton" layoutX="757.0" layoutY="408.0" onMouseClicked="#clickTimerReset" prefHeight="42.0" prefWidth="85.0" stylesheets="@Main.css" text="Reset" />
+      <Label layoutX="690.0" layoutY="291.0" text=": " textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
   </children>
 </AnchorPane>

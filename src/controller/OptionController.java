@@ -1,7 +1,10 @@
 package controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -10,13 +13,27 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.*;
+import java.util.concurrent.TimeUnit;
 
 public class OptionController {
 
   @FXML private JFXTextField PlayerNameTextField;
   @FXML private MenuButton menuButton;
+  @FXML private JFXTextField minTextField;
+  @FXML private JFXTextField secTextField;
+  @FXML private JFXButton timerPauseButton;
   private Scene previousScene;
   private CourtController courtController;
+  static int SECOND;
+  public boolean status = true;
+  Timer timer = new Timer();
+  TimerTask task =
+      new TimerTask() {
+        @Override
+        public void run() {
+          SECOND++;
+        }
+      };
 
   @FXML
   public void clickJoin() throws IOException {
@@ -76,6 +93,43 @@ public class OptionController {
     System.out.println("i: " + playerManager.getNumIntermediate());
     System.out.println("a: " + playerManager.getNumAdvance());
     // TODO: ##################################TEST#################################################
+  }
+
+  public void clickTimerReset() throws IOException {
+    minTextField.setText("");
+    secTextField.setText("");
+    SECOND = 0;
+    courtController.setTimerMin(String.format("%02d", 0));
+    courtController.setTimerSec(String.format("%02d", 0));
+  }
+
+  public void clickTimerStart() throws IOException, InterruptedException {
+    // TODO: add alert: should reset first then start.
+    int minutes = Integer.parseInt(minTextField.getText());
+    int seconds = Integer.parseInt(secTextField.getText());
+    courtController.setTimerMin(String.format("%02d", minutes));
+    courtController.setTimerSec(String.format("%02d", seconds));
+    timer.schedule(task, 0, 1000);
+    // TODO: implement T-minus
+  }
+
+  public void clickTimerPause() throws IOException {
+    if (status) {
+      this.timer.cancel();
+      status = false;
+      timerPauseButton.setText("Resume");
+    } else {
+      this.timer = new Timer();
+      this.task = new TimerTask() {
+        @Override
+        public void run() {
+          SECOND++;
+        }
+      };
+      timer.schedule(task, 0, 1000 );
+      status = true;
+      timerPauseButton.setText("Pause");
+    }
   }
 
   public void setCourtController(CourtController courtController) {

@@ -41,6 +41,8 @@ public class CourtController {
   @FXML private Label c6b;
   @FXML private Label c6c;
   @FXML private Label c6d;
+  @FXML private Label minTextField;
+  @FXML private Label secTextField;
 
   Admin admin = StarterController.adminUser;
   CourtManager courtManager = admin.getCourtManager();
@@ -61,6 +63,14 @@ public class CourtController {
 
   public void setOptionController(OptionController optionController) {
     this.optionController = optionController;
+  }
+
+  public void setTimerMin(String min) {
+    minTextField.setText(min);
+  }
+
+  public void setTimerSec(String sec) {
+    secTextField.setText(sec);
   }
 
   public void setOptionScene(Scene optionScene) {
