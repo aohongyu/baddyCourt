@@ -11,34 +11,34 @@
 
 <AnchorPane fx:id="courtPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1000.0" style="-fx-background-color: #2A2E37;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CourtController">
    <children>
-      <Label layoutX="22.0" layoutY="21.0" text="Start Time: " textFill="#ffff8d">
+      <Label layoutX="57.0" layoutY="41.0" text="Start Time: " textFill="#ffff8d">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label layoutX="336.0" layoutY="22.0" text="End Time: " textFill="#ffff8d">
+      <Label layoutX="270.0" layoutY="41.0" text="End Time: " textFill="#ffff8d">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
       <FontAwesomeIconView fill="#ffff8d" glyphName="GEAR" layoutX="945.0" layoutY="50.0" size="40" />
       <JFXButton buttonType="RAISED" layoutX="944.0" layoutY="14.0" onMouseClicked="#clickOption" prefHeight="43.0" prefWidth="37.0" ripplerFill="#ffff8d" text="  " textFill="#40485b" />
-      <Label layoutX="644.0" layoutY="21.0" text="Current Player: " textFill="#ffff8d">
+      <Label layoutX="478.0" layoutY="41.0" text="Current Player: " textFill="#ffff8d">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="startTime" layoutX="150.0" layoutY="22.0" prefHeight="28.0" prefWidth="128.0" text="N/A" textFill="#ffff8d">
+      <Label fx:id="startTime" layoutX="168.0" layoutY="41.0" prefHeight="28.0" prefWidth="82.0" text="N/A" textFill="#ffff8d">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="endTime" layoutX="455.0" layoutY="22.0" prefHeight="28.0" prefWidth="128.0" text="N/A" textFill="#ffff8d">
+      <Label fx:id="endTime" layoutX="377.0" layoutY="41.0" prefHeight="28.0" prefWidth="82.0" text="N/A" textFill="#ffff8d">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="numPlayers" layoutX="821.0" layoutY="21.0" prefHeight="28.0" prefWidth="88.0" text="N/A" textFill="#ffff8d">
+      <Label fx:id="numPlayers" layoutX="635.0" layoutY="41.0" prefHeight="28.0" prefWidth="88.0" text="N/A" textFill="#ffff8d">
          <font>
             <Font size="23.0" />
          </font>
