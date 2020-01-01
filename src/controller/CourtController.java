@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.Set;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -75,10 +74,6 @@ public class CourtController {
   }
 
   public void clickCourtChange() throws IOException {
-    if (PlayerManager.PLAYERNUM < 4) {
-      AlertController.failAlert("There is not enough players.");
-    }
-
     if (CourtManager.COURTNUM == 3) {
       if (PlayerManager.PLAYERNUM < 12) {
         AlertController.failAlert("There is not enough players.");
