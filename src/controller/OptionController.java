@@ -24,7 +24,10 @@ public class OptionController {
   private Scene previousScene;
   private CourtController courtController;
   static int SECOND;
-  public boolean status = true;
+  public boolean pauseStatus = false;
+  public boolean startStatus = false;
+  static int DEFALUTMIN;
+  static int DEFALUTSEC;
   Timer timer = new Timer();
   TimerTask task =
       new TimerTask() {
@@ -36,15 +39,19 @@ public class OptionController {
             ss = 60;
             mm -= 1;
           }
-          if (SECOND == 0) {
-            timer.cancel();
-          }
+
           SECOND--;
           ss -= 1;
 
-          // set timer text on court interface
+          // set timer text on option interface
           minTextField.setText(String.format("%02d", mm));
           secTextField.setText(String.format("%02d", ss));
+
+          if (SECOND == 0) {
+            timer.cancel();
+            minTextField.setText(String.format("%02d", 0));
+            secTextField.setText(String.format("%02d", 0));
+          }
         }
       };
 
@@ -99,56 +106,113 @@ public class OptionController {
   }
 
   public void clickTimerReset() throws IOException {
-    minTextField.setText("");
-    secTextField.setText("");
     SECOND = 0;
-    this.timer.cancel();
-    courtController.setTimerText("00:00");
-    minTextField.setText(String.format("%02d", 0));
-    secTextField.setText(String.format("%02d", 0));
+    if (startStatus) {
+      this.timer.cancel();
+      timerPauseButton.setText("Pause");
+    }
+    minTextField.setText(String.format("%02d", DEFALUTMIN));
+    secTextField.setText(String.format("%02d", DEFALUTSEC));
+    pauseStatus = false;
+    startStatus = false;
+
+    this.timer = new Timer();
+    this.task =
+        new TimerTask() {
+          @Override
+          public void run() {
+            int mm = SECOND / 60 % 60;
+            int ss = SECOND % 60;
+            if (ss == 0) {
+              ss = 60;
+              mm -= 1;
+            }
+
+            SECOND--;
+            ss -= 1;
+
+            // set timer text on option interface
+            minTextField.setText(String.format("%02d", mm));
+            secTextField.setText(String.format("%02d", ss));
+
+            if (SECOND == 0) {
+              timer.cancel();
+              minTextField.setText(String.format("%02d", 0));
+              secTextField.setText(String.format("%02d", 0));
+            }
+          }
+        };
   }
 
   public void clickTimerStart() throws IOException {
-    // TODO: add alert: should reset first then start.
-    int minutes = Integer.parseInt(minTextField.getText());
-    int seconds = Integer.parseInt(secTextField.getText());
-    SECOND = minutes * 60 + seconds;
-    // TODO: 检查输入时间的有效性，无效时间pop up alert
-    // courtController.setTimerText(minTextField.getText() + ":" + secTextField.getText());
-    timer.scheduleAtFixedRate(task, 1000, 1000);
+    // should reset first then start.
+    if (startStatus) {
+      AlertController.failAlert("The timer is now running. Please stop the timer first.");
+    } else {
+      if (pauseStatus) {
+        AlertController.failAlert("The timer is now paused. Please use resume button.");
+      } else {
+        DEFALUTMIN = Integer.parseInt(minTextField.getText());
+        DEFALUTSEC = Integer.parseInt(secTextField.getText());
+        String startMin = minTextField.getText();
+        String startSec = secTextField.getText();
+        // check format of time
+        if ((startMin.matches("00") && startSec.matches("[0-5][1-9]")) ||
+            (startMin.matches("([0-9][1-9]|[1-9][0-9])") && startSec.matches("[0-5][0-9]"))) {
+          int minutes = DEFALUTMIN;
+          int seconds = DEFALUTSEC;
+          SECOND = minutes * 60 + seconds;
+          timer.scheduleAtFixedRate(task, 1000, 1000);
+          startStatus = true;
+          timerPauseButton.setText("Pause");
+        } else {
+          AlertController.failAlert("Please enter valid time.");
+        }
+      }
+    }
   }
 
   public void clickTimerPause() throws IOException {
-    if (status) {
-      this.timer.cancel();
-      status = false;
-      timerPauseButton.setText("Start");
+    if ((!startStatus && timerPauseButton.getText().equals("Pause"))) {
+      AlertController.failAlert("The timer is now paused.");
     } else {
-      this.timer = new Timer();
-      this.task =
-          new TimerTask() {
-            @Override
-            public void run() {
-              int mm = SECOND / 60 % 60;
-              int ss = SECOND % 60;
-              if (ss == 0) {
-                ss = 60;
-                mm -= 1;
-              }
-              if (SECOND == 0) {
-                timer.cancel();
-              }
-              SECOND--;
-              ss -= 1;
+      if (startStatus) {
+        this.timer.cancel();
+        startStatus = false;
+        pauseStatus = true;
+        timerPauseButton.setText("Resume");
+      } else {
+        this.timer = new Timer();
+        this.task =
+            new TimerTask() {
+              @Override
+              public void run() {
+                int mm = SECOND / 60 % 60;
+                int ss = SECOND % 60;
+                if (ss == 0) {
+                  ss = 60;
+                  mm -= 1;
+                }
 
-              // set timer text on court interface
-              minTextField.setText(String.format("%02d", mm));
-              secTextField.setText(String.format("%02d", ss));
-            }
-          };
-      timer.scheduleAtFixedRate(task, 1000, 1000);
-      status = true;
-      timerPauseButton.setText("Pause");
+                SECOND--;
+                ss -= 1;
+
+                // set timer text on option interface
+                minTextField.setText(String.format("%02d", mm));
+                secTextField.setText(String.format("%02d", ss));
+
+                if (SECOND == 0) {
+                  timer.cancel();
+                  minTextField.setText(String.format("%02d", 0));
+                  secTextField.setText(String.format("%02d", 0));
+                }
+              }
+            };
+        timer.scheduleAtFixedRate(task, 1000, 1000);
+        startStatus = true;
+        pauseStatus = false;
+        timerPauseButton.setText("Pause");
+      }
     }
   }
 

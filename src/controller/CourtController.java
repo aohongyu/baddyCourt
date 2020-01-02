@@ -64,6 +64,7 @@ public class CourtController {
     this.optionController = optionController;
   }
 
+  // didn't used
   public void setTimerText(String time) {
     timerTextField.setText(time);
   }
