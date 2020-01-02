@@ -13,7 +13,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.*;
-import java.util.concurrent.TimeUnit;
 
 public class OptionController {
 
@@ -31,7 +30,21 @@ public class OptionController {
       new TimerTask() {
         @Override
         public void run() {
-          SECOND++;
+          int mm = SECOND / 60 % 60;
+          int ss = SECOND % 60;
+          if (ss == 0) {
+            ss = 60;
+            mm -= 1;
+          }
+          if (SECOND == 0) {
+            timer.cancel();
+          }
+          SECOND--;
+          ss -= 1;
+
+          // set timer text on court interface
+          minTextField.setText(String.format("%02d", mm));
+          secTextField.setText(String.format("%02d", ss));
         }
       };
 
@@ -59,11 +72,6 @@ public class OptionController {
       // update the number of current player
       courtController.setNumPlayers(PlayerManager.PLAYERNUM);
     }
-    // TODO: ##################################TEST#################################################
-    System.out.println("total: " + PlayerManager.PLAYERNUM);
-    System.out.println("i: " + playerManager.getNumIntermediate());
-    System.out.println("a: " + playerManager.getNumAdvance());
-    // TODO: ##################################TEST#################################################
   }
 
   @FXML
@@ -88,45 +96,57 @@ public class OptionController {
       }
       courtController.setNumPlayers(PlayerManager.PLAYERNUM);
     }
-    // TODO: ##################################TEST#################################################
-    System.out.println("total: " + PlayerManager.PLAYERNUM);
-    System.out.println("i: " + playerManager.getNumIntermediate());
-    System.out.println("a: " + playerManager.getNumAdvance());
-    // TODO: ##################################TEST#################################################
   }
 
   public void clickTimerReset() throws IOException {
     minTextField.setText("");
     secTextField.setText("");
     SECOND = 0;
-    courtController.setTimerMin(String.format("%02d", 0));
-    courtController.setTimerSec(String.format("%02d", 0));
+    this.timer.cancel();
+    courtController.setTimerText("00:00");
+    minTextField.setText(String.format("%02d", 0));
+    secTextField.setText(String.format("%02d", 0));
   }
 
-  public void clickTimerStart() throws IOException, InterruptedException {
+  public void clickTimerStart() throws IOException {
     // TODO: add alert: should reset first then start.
     int minutes = Integer.parseInt(minTextField.getText());
     int seconds = Integer.parseInt(secTextField.getText());
-    courtController.setTimerMin(String.format("%02d", minutes));
-    courtController.setTimerSec(String.format("%02d", seconds));
-    timer.schedule(task, 0, 1000);
-    // TODO: implement T-minus
+    SECOND = minutes * 60 + seconds;
+    // TODO: 检查输入时间的有效性，无效时间pop up alert
+    // courtController.setTimerText(minTextField.getText() + ":" + secTextField.getText());
+    timer.scheduleAtFixedRate(task, 1000, 1000);
   }
 
   public void clickTimerPause() throws IOException {
     if (status) {
       this.timer.cancel();
       status = false;
-      timerPauseButton.setText("Resume");
+      timerPauseButton.setText("Start");
     } else {
       this.timer = new Timer();
-      this.task = new TimerTask() {
-        @Override
-        public void run() {
-          SECOND++;
-        }
-      };
-      timer.schedule(task, 0, 1000 );
+      this.task =
+          new TimerTask() {
+            @Override
+            public void run() {
+              int mm = SECOND / 60 % 60;
+              int ss = SECOND % 60;
+              if (ss == 0) {
+                ss = 60;
+                mm -= 1;
+              }
+              if (SECOND == 0) {
+                timer.cancel();
+              }
+              SECOND--;
+              ss -= 1;
+
+              // set timer text on court interface
+              minTextField.setText(String.format("%02d", mm));
+              secTextField.setText(String.format("%02d", ss));
+            }
+          };
+      timer.scheduleAtFixedRate(task, 1000, 1000);
       status = true;
       timerPauseButton.setText("Pause");
     }
