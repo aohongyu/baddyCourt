@@ -13,7 +13,8 @@ public class CourtController {
 
   private Scene optionScene;
   private Scene previousScene;
-  private OptionController optionController;
+  public static OptionController optionController;
+//  private OptionController optionController;
   @FXML private Label startTime;
   @FXML private Label endTime;
   @FXML private Label numPlayers;
@@ -46,8 +47,6 @@ public class CourtController {
   Admin admin = StarterController.adminUser;
   CourtManager courtManager = admin.getCourtManager();
 
-  public CourtController() {}
-
   public void setStartTime(String start) {
     startTime.setText(start);
   }
@@ -62,11 +61,6 @@ public class CourtController {
 
   public void setOptionController(OptionController optionController) {
     this.optionController = optionController;
-  }
-
-  // didn't used
-  public void setTimerText(String time) {
-    timerTextField.setText(time);
   }
 
   public void setOptionScene(Scene optionScene) {

@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -16,13 +17,14 @@ import model.*;
 
 public class OptionController {
 
+  public static CourtController courtController;
   @FXML private JFXTextField PlayerNameTextField;
   @FXML private MenuButton menuButton;
   @FXML private JFXTextField minTextField;
   @FXML private JFXTextField secTextField;
   @FXML private JFXButton timerPauseButton;
   private Scene previousScene;
-  private CourtController courtController;
+//  private CourtController courtController;
   static int SECOND;
   public boolean pauseStatus = false;
   public boolean startStatus = false;
@@ -51,6 +53,13 @@ public class OptionController {
             timer.cancel();
             minTextField.setText(String.format("%02d", 0));
             secTextField.setText(String.format("%02d", 0));
+            Platform.runLater(()-> {
+              try {
+                AlertController.courtChangeAlert("Time's up. Time to change court :)");
+              } catch (IOException e) {
+                e.printStackTrace();
+              }
+            });
           }
         }
       };
@@ -144,6 +153,13 @@ public class OptionController {
               timer.cancel();
               minTextField.setText(String.format("%02d", 0));
               secTextField.setText(String.format("%02d", 0));
+              Platform.runLater(()-> {
+                try {
+                  AlertController.courtChangeAlert("Time's up. Time to change court :)");
+                } catch (IOException e) {
+                  e.printStackTrace();
+                }
+              });
             }
           }
         };
@@ -152,7 +168,7 @@ public class OptionController {
   public void clickTimerStart() throws IOException {
     // should reset first then start.
     if (startStatus) {
-      AlertController.failAlert("The timer is now running. Please stop the timer first.");
+      AlertController.failAlert("The timer is now running. Please stop or reset the timer first.");
     } else {
       if (pauseStatus) {
         AlertController.failAlert("The timer is now paused. Please use resume button.");
@@ -210,6 +226,13 @@ public class OptionController {
                   timer.cancel();
                   minTextField.setText(String.format("%02d", 0));
                   secTextField.setText(String.format("%02d", 0));
+                  Platform.runLater(()-> {
+                    try {
+                      AlertController.courtChangeAlert("Time's up. Time to change court :)");
+                    } catch (IOException e) {
+                      e.printStackTrace();
+                    }
+                  });
                 }
               }
             };
@@ -223,6 +246,10 @@ public class OptionController {
 
   public void setCourtController(CourtController courtController) {
     this.courtController = courtController;
+  }
+
+  public CourtController getCourtController() {
+    return courtController;
   }
 
   @FXML
