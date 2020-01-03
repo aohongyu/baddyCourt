@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="197.0" prefWidth="600.0" style="-fx-background-color: #2A2E37;" stylesheets="@Main.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AlertController">
   <children>
-    <JFXButton layoutX="168.0" layoutY="141.0" onMouseClicked="#clickOnCourtChange" prefHeight="42.0" prefWidth="148.0" style="-fx-border-color: #FFFF8D;" text="Court Change" textFill="WHITE">
+    <JFXButton layoutX="156.0" layoutY="141.0" onMouseClicked="#clickOnCourtChange" prefHeight="42.0" prefWidth="180.0" style="-fx-border-color: #FFFF8D;" text="Court Change" textFill="WHITE">
       <font>
         <Font size="15.0" />
       </font>
@@ -20,7 +20,7 @@
       </font>
     </Label>
     <FontAwesomeIconView fill="#ffff8d" glyphName="CLOCK_ALT" layoutX="26.0" layoutY="60.0" size="50" />
-      <JFXButton layoutX="339.0" layoutY="141.0" onMouseClicked="#clickCourtChangeCancel" prefHeight="41.0" prefWidth="94.0" style="-fx-border-color: #FFFF8D;" text="Cancel" textFill="WHITE">
+      <JFXButton layoutX="351.0" layoutY="141.0" onMouseClicked="#clickCourtChangeCancel" prefHeight="41.0" prefWidth="94.0" style="-fx-border-color: #FFFF8D;" text="Cancel" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

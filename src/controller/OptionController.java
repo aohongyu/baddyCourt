@@ -179,7 +179,8 @@ public class OptionController {
         String startSec = secTextField.getText();
         // check format of time
         if ((startMin.matches("00") && startSec.matches("[0-5][1-9]")) ||
-            (startMin.matches("([0-9][1-9]|[1-9][0-9])") && startSec.matches("[0-5][0-9]"))) {
+            (startMin.matches("([0-9][1-9]|[1-9][0-9])") && startSec.matches("[0-5][0-9]")) ||
+            (startMin.matches("00") && startSec.matches("10"))) {
           int minutes = DEFALUTMIN;
           int seconds = DEFALUTSEC;
           SECOND = minutes * 60 + seconds;
