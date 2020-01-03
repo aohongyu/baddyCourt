@@ -12,6 +12,7 @@ public class Main extends Application {
 
   public static void main(String[] args) {
     Application.launch();
+    System.exit(0);
   }
 
   @Override
