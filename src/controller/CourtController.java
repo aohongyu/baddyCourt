@@ -83,6 +83,14 @@ public class CourtController {
     if (CourtManager.COURTNUM == 3) {
       if (PlayerManager.PLAYERNUM < 12) {
         AlertController.failAlert("There is not enough players.");
+      } else if (PlayerManager.ADVNUM < 4 || PlayerManager.INTNUM < 4) {
+        if (PlayerManager.ADVNUM < 4) {
+          AlertController.failAlert("Sorry, in this version, we cannot execute court change. \n"
+              + "Since there is not enough advanced players.");
+        } else {
+          AlertController.failAlert("Sorry, in this version, we cannot execute court change. \n"
+              + "Since there is not enough intermediate players.");
+        }
       } else {
         courtManager.setUp3Court();
         Object[] playerList1 = (Object[]) courtManager.courtStatus.get(1);
@@ -104,6 +112,14 @@ public class CourtController {
     } else if (CourtManager.COURTNUM == 6) {
       if (PlayerManager.PLAYERNUM < 24) {
         AlertController.failAlert("There is not enough players.");
+      } else if (PlayerManager.ADVNUM < 4 || PlayerManager.INTNUM < 4) {
+        if (PlayerManager.ADVNUM < 4) {
+          AlertController.failAlert("Sorry, in this version, we cannot execute court change. \n"
+              + "Since there is not enough advanced players.");
+        } else {
+          AlertController.failAlert("Sorry, in this version, we cannot execute court change. \n"
+              + "Since there is not enough intermediate players.");
+        }
       } else {
         courtManager.setUp6Court();
         Object[] playerList1 = (Object[]) courtManager.courtStatus.get(1);

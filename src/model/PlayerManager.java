@@ -7,6 +7,8 @@ public class PlayerManager {
   public Set intermediate;
   public Set advance;
   public static int PLAYERNUM;
+  public static int INTNUM;
+  public static int ADVNUM;
 
   public PlayerManager() {
     this.intermediate = new HashSet();
@@ -40,10 +42,29 @@ public class PlayerManager {
 //        intermediate.add("i15");
 //        intermediate.add("i16");
 //        intermediate.add("i17");
-//        PLAYERNUM += 17;
+//        intermediate.add("i18");
+//        intermediate.add("i19");
+//        intermediate.add("i20");
+//        intermediate.add("i21");
+//        intermediate.add("i22");
+//        intermediate.add("i23");
+//        intermediate.add("i24");
+//        intermediate.add("i25");
+//        intermediate.add("i26");
+//        intermediate.add("i27");
+//        intermediate.add("i28");
+//        intermediate.add("i29");
+//        intermediate.add("i30");
+//        intermediate.add("i31");
+//        intermediate.add("i32");
+//        intermediate.add("i33");
+//        intermediate.add("i34");
+//        PLAYERNUM += 34;
+//        INTNUM += 34;
 //        // TODO: 测试用！！
 
         PLAYERNUM++;
+        INTNUM++;
         break;
       case "Advance":
         if (advance.contains(player)) {
@@ -69,10 +90,12 @@ public class PlayerManager {
 //        advance.add("a15");
 //        advance.add("a16");
 //        advance.add("a17");
-//        PLAYERNUM += 17;
+//        PLAYERNUM +=17;
+//        ADVNUM += 17;
 //        // TODO: 测试用！！
 
          PLAYERNUM++;
+         ADVNUM++;
         break;
     }
   }
@@ -83,12 +106,14 @@ public class PlayerManager {
         if (intermediate.contains(player)) {
           intermediate.remove(player);
           PLAYERNUM--;
+          INTNUM--;
         }
         break;
       case "Advance":
         if (advance.contains(player)) {
           advance.remove(player);
           PLAYERNUM--;
+          ADVNUM--;
         }
         break;
     }

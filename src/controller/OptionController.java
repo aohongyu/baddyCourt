@@ -111,6 +111,11 @@ public class OptionController {
       this.timer.cancel();
       timerPauseButton.setText("Pause");
     }
+
+    if (pauseStatus) {
+      timerPauseButton.setText("Pause");
+    }
+
     minTextField.setText(String.format("%02d", DEFALUTMIN));
     secTextField.setText(String.format("%02d", DEFALUTSEC));
     pauseStatus = false;
