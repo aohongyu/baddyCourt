@@ -48,11 +48,16 @@ public class OptionController {
           // set timer text on option interface
           minTextField.setText(String.format("%02d", mm));
           secTextField.setText(String.format("%02d", ss));
+          int finalMm = mm;
+          int finalSs = ss;
+          Platform.runLater(()-> courtController.setTimerTextField(
+              String.format("%02d", finalMm) + ":" + String.format("%02d", finalSs)));
 
           if (SECOND == 0) {
             timer.cancel();
             minTextField.setText(String.format("%02d", 0));
             secTextField.setText(String.format("%02d", 0));
+            courtController.setTimerTextField("00:00");
             Platform.runLater(()-> {
               try {
                 AlertController.courtChangeAlert("Time's up. Time to change court :)");
@@ -127,6 +132,7 @@ public class OptionController {
 
     minTextField.setText(String.format("%02d", DEFALUTMIN));
     secTextField.setText(String.format("%02d", DEFALUTSEC));
+    courtController.setTimerTextField(String.format("%02d", DEFALUTMIN) + ":" + String.format("%02d", DEFALUTSEC));
     pauseStatus = false;
     startStatus = false;
 
@@ -148,11 +154,16 @@ public class OptionController {
             // set timer text on option interface
             minTextField.setText(String.format("%02d", mm));
             secTextField.setText(String.format("%02d", ss));
+            int finalMm = mm;
+            int finalSs = ss;
+            Platform.runLater(()-> courtController.setTimerTextField(
+                String.format("%02d", finalMm) + ":" + String.format("%02d", finalSs)));
 
             if (SECOND == 0) {
               timer.cancel();
               minTextField.setText(String.format("%02d", 0));
               secTextField.setText(String.format("%02d", 0));
+              courtController.setTimerTextField("00:00");
               Platform.runLater(()-> {
                 try {
                   AlertController.courtChangeAlert("Time's up. Time to change court :)");
@@ -222,11 +233,16 @@ public class OptionController {
                 // set timer text on option interface
                 minTextField.setText(String.format("%02d", mm));
                 secTextField.setText(String.format("%02d", ss));
+                int finalMm = mm;
+                int finalSs = ss;
+                Platform.runLater(()-> courtController.setTimerTextField(
+                    String.format("%02d", finalMm) + ":" + String.format("%02d", finalSs)));
 
                 if (SECOND == 0) {
                   timer.cancel();
                   minTextField.setText(String.format("%02d", 0));
                   secTextField.setText(String.format("%02d", 0));
+                  courtController.setTimerTextField("00:00");
                   Platform.runLater(()-> {
                     try {
                       AlertController.courtChangeAlert("Time's up. Time to change court :)");

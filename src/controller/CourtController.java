@@ -150,6 +150,10 @@ public class CourtController {
     }
   }
 
+  public void setTimerTextField(String time) {
+    timerTextField.setText(time);
+  }
+
   public void setPreviousScene(Scene scene) {
     previousScene = scene;
   }

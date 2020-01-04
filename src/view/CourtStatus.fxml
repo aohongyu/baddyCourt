@@ -38,7 +38,7 @@
             <Font size="23.0" />
          </font>
       </Label>
-      <Label fx:id="numPlayers" layoutX="635.0" layoutY="41.0" prefHeight="28.0" prefWidth="88.0" text="N/A" textFill="#ffff8d">
+      <Label fx:id="numPlayers" layoutX="635.0" layoutY="41.0" prefHeight="28.0" prefWidth="71.0" text="N/A" textFill="#ffff8d">
          <font>
             <Font size="23.0" />
          </font>
@@ -229,7 +229,12 @@
          </font>
       </JFXButton>
       <JFXButton layoutX="433.0" layoutY="542.0" onMouseClicked="#clickCourtChange" stylesheets="@Main.css" text="Court Change" />
-      <Label fx:id="timerTextField" layoutX="757.0" layoutY="41.0" prefHeight="28.0" prefWidth="94.0" textFill="#ffff8d">
+      <Label fx:id="timerTextField" layoutX="840.0" layoutY="41.0" prefHeight="28.0" prefWidth="71.0" textFill="#ffff8d">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="714.0" layoutY="41.0" text="Next Round:" textFill="#ffff8d">
          <font>
             <Font size="23.0" />
          </font>

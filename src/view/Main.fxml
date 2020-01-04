@@ -27,6 +27,6 @@
         <Font size="30.0" />
       </font>
     </JFXTextField>
-      <Text fill="#838080" layoutX="13.0" layoutY="635.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver 1.1.1" />
+      <Text fill="#838080" layoutX="13.0" layoutY="636.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ver 1.1.2" />
   </children>
 </AnchorPane>
